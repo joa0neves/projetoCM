@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">projetoCM</string>
+    <string name="login">Login</string>
+    <string name="registar">Create Account</string>
+</resources>
