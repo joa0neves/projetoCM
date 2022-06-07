@@ -28,7 +28,7 @@ abstract class AppRoomDatabase : RoomDatabase() {
     abstract fun ReviewParqueDao(): ReviewParqueDao
     abstract fun PagamentoDao(): PagamentoDao
 
-    private class WordDatabaseCallback(
+    private class AppDatabaseCallback(
         private val scope: CoroutineScope
     ) : RoomDatabase.Callback() {
 
@@ -46,7 +46,7 @@ abstract class AppRoomDatabase : RoomDatabase() {
             UserDao.deleteAll()
             
             // Add sample Users.
-            var user = User(1, "Nuno Meira", "nunomeira@ipvc.pt","1234", 921922122, "M")
+            var user = User(1, "Nuno Meira", "nunomeira@ipvc.pt","1234", 921922122)
             UserDao.insert(user)
 
         }
@@ -66,10 +66,9 @@ abstract class AppRoomDatabase : RoomDatabase() {
                     AppRoomDatabase::class.java, //bd
                     "App_database" //nome
                 )
-                    .addCallback(WordDatabaseCallback(scope))
+                    .addCallback(AppDatabaseCallback(scope))
                     .build()
                 INSTANCE = instance //passar bd para instance
-                //return instance igual a instance
                 instance //retorna a instance
             }
         }

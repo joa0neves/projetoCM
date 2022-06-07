@@ -12,6 +12,5 @@ class User (
     val name: String,
     val email: String,
     val password: String,
-    val contacto: Int,
-    val genero: String
+    val contacto: Int
 )
