@@ -8,6 +8,13 @@ import android.text.TextUtils
 import android.view.View
 import android.widget.Button
 import android.widget.EditText
+import android.widget.Toast
+import com.ipvc.projetocm.api.DefaultResponse
+import com.ipvc.projetocm.api.EndPoints
+import com.ipvc.projetocm.api.ServiceBuilder
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 class Registo : AppCompatActivity() {
 
@@ -29,19 +36,23 @@ class Registo : AppCompatActivity() {
         button.setOnClickListener {
             val replyIntent = Intent()
             if (TextUtils.isEmpty(editNomeView.text) && TextUtils.isEmpty(editEmailView.text) && TextUtils.isEmpty(editPasswordView.text) && TextUtils.isEmpty(editContactoView.text)) {
-                setResult(Activity.RESULT_CANCELED, replyIntent)
+                //setResult(Activity.RESULT_CANCELED, replyIntent)
             } else {
-                /*
                 val nome = editNomeView.text.toString()
                 val email = editEmailView.text.toString()
                 val password = editPasswordView.text.toString()
                 val contacto = editContactoView.text.toString()
-                replyIntent.putExtra(EXTRA_REPLY, nome)
-                replyIntent.putExtra(EXTRA_REPLY, email)
-                replyIntent.putExtra(EXTRA_REPLY, password)
-                replyIntent.putExtra(EXTRA_REPLY, contacto)
-                setResult(Activity.RESULT_OK, replyIntent)*/
-                //enviar para a atividade MainActivity e concluir registo na bd
+
+                ServiceBuilder.instance.postUser(nome, email, password, contacto)
+                    .enqueue(object: Callback<DefaultResponse>{
+                        override fun onFailure(call: Call<DefaultResponse>, t: Throwable) {
+                            Toast.makeText(applicationContext, t.message, Toast.LENGTH_LONG).show()
+                        }
+
+                        override fun onResponse(call: Call<DefaultResponse>, response: Response<DefaultResponse>) {
+                            Toast.makeText(applicationContext, response.body()?.message, Toast.LENGTH_LONG).show()
+                        }
+                    })
             }
             finish()
         }
@@ -49,14 +60,9 @@ class Registo : AppCompatActivity() {
 
     }
 
-
-
-    companion object {
-        const val EXTRA_REPLY = "com.example.android.wordlistsql.REPLY"
-    }
-
     fun onClickLogin(view: View) {
         val intent = Intent(this, Login::class.java)
         startActivity(intent)
     }
 }
+

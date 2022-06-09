@@ -1,13 +1,9 @@
 package com.ipvc.projetocm.Model
 
-import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.ForeignKey
 import androidx.room.ForeignKey.CASCADE
 import androidx.room.PrimaryKey
-import java.time.LocalDate
-import java.time.LocalTime
-import java.util.*
 
 @Entity(tableName = "bilhete_table",
     foreignKeys = [ForeignKey(
@@ -20,8 +16,9 @@ class Bilhete (
     @PrimaryKey(autoGenerate = true)
     val id: Int,
     val nrLugar: String,
-    val data: Long,
-    val hora: Long,
+    val data: String,
     val qr: String,
+    val valor: Float,
+    val estaPago: Boolean,
     val idUtilizador: Int
 )

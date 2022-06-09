@@ -6,27 +6,22 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 import androidx.sqlite.db.SupportSQLiteDatabase
 import com.ipvc.projetocm.DAO.BilheteDao
-import com.ipvc.projetocm.DAO.PagamentoDao
 import com.ipvc.projetocm.DAO.ReviewParqueDao
 import com.ipvc.projetocm.DAO.UserDao
 import com.ipvc.projetocm.Model.ReviewParque
 import com.ipvc.projetocm.Model.User
-import com.ipvc.projetocm.Model.Pagamento
 import com.ipvc.projetocm.Model.Bilhete
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
-import java.time.chrono.HijrahChronology
-import java.time.chrono.HijrahChronology.INSTANCE
 
 //marcar classe como database e indicar identidades
-@Database(entities = [User::class, Pagamento::class, ReviewParque::class, Bilhete::class], version = 1, exportSchema = false)
+@Database(entities = [User::class, ReviewParque::class, Bilhete::class], version = 1, exportSchema = false)
 abstract class AppRoomDatabase : RoomDatabase() {
 
     //indicar todos os DAO de todas as identidades
     abstract fun UserDao(): UserDao
     abstract fun BilheteDao(): BilheteDao
     abstract fun ReviewParqueDao(): ReviewParqueDao
-    abstract fun PagamentoDao(): PagamentoDao
 
     private class AppDatabaseCallback(
         private val scope: CoroutineScope
@@ -46,8 +41,8 @@ abstract class AppRoomDatabase : RoomDatabase() {
             UserDao.deleteAll()
             
             // Add sample Users.
-            var user = User(1, "Nuno Meira", "nunomeira@ipvc.pt","1234", 921922122)
-            UserDao.insert(user)
+            //var user = User(1, "Nuno Meira", "nunomeira@ipvc.pt","1234", 921922122)
+            //UserDao.insert(user)
 
         }
     }
