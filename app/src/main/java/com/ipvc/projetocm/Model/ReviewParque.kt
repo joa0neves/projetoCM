@@ -11,13 +11,13 @@ import java.util.*
     foreignKeys = [ForeignKey(
         entity = User::class,
         parentColumns = ["id"],
-        childColumns = ["idUtilizador"],
+        childColumns = ["idUser"],
         onDelete = CASCADE)])
 
 class ReviewParque (
     @PrimaryKey(autoGenerate = true)
     val id: Int,
-    val estrelas: Float,
+    val estrelas: Double,
     val desc: String,
-    val idUtilizador: Int
+    val idUser: Int
 )

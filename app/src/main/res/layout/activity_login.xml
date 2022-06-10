@@ -31,13 +31,13 @@
         android:onClick="onClickRegisto"
         android:text="Ainda não tem conta? Registe-se."
         android:textSize="10sp"
-        app:layout_constraintBottom_toTopOf="@+id/btLogin"
+        app:layout_constraintBottom_toTopOf="@+id/btPass"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvLogin" />
 
     <Button
-        android:id="@+id/btLogin"
+        android:id="@+id/btPass"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="50dp"

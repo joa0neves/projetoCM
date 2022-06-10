@@ -12,4 +12,13 @@ interface EndPoints {
                  @Field("password") password: String?,
                  @Field("contacto") contacto: String?): Call<DefaultResponse>
 
+    @GET("listUser.php")
+    fun getIndividualUser(@Field("id") id: Int?) : Call<DefaultResponse>
+
+    @FormUrlEncoded
+    @POST("postReview.php")
+    fun postReview(@Field("estrelas") estrelas: Double?,
+                 @Field("descr") descr: String?,
+                 @Field("idUser") idUser: Int?): Call<DefaultResponse>
+
 }
