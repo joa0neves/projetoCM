@@ -1,5 +1,6 @@
 package com.ipvc.projetocm.api
 
+import com.ipvc.projetocm.Model.Id
 import retrofit2.Call
 import retrofit2.http.*
 
@@ -24,6 +25,6 @@ interface EndPoints {
     @FormUrlEncoded
     @POST("login.php")
     fun postLogin(@Field("email") email: String?,
-                   @Field("password") password: String?): Call<DefaultResponse>
+                   @Field("password") password: String?): Call<Id>
 
 }

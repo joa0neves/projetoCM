@@ -66,6 +66,16 @@
         android:layout_marginVertical="20dp"
         />
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/cred_erradas"
+        android:layout_below="@id/btPass"
+        android:layout_centerHorizontal="true"
+        android:textColor="#ff0000"
+        android:visibility="gone"
+        android:id="@+id/tvwrong"/>
+
 
 
 </RelativeLayout>

@@ -26,6 +26,7 @@ object ServiceBuilder {
     private val okHttpClient = OkHttpClient.Builder()
         .addInterceptor { chain ->
             val original = chain.request()
+
             val requestBuilder = original.newBuilder()
                 .addHeader("Authorization", AUTH)
                 .method(original.method(), original.body())
