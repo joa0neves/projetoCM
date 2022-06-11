@@ -1,6 +1,7 @@
 package com.ipvc.projetocm.api
 
 import android.util.Base64
+import android.util.Log
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
@@ -25,7 +26,6 @@ object ServiceBuilder {
     private val okHttpClient = OkHttpClient.Builder()
         .addInterceptor { chain ->
             val original = chain.request()
-
             val requestBuilder = original.newBuilder()
                 .addHeader("Authorization", AUTH)
                 .method(original.method(), original.body())

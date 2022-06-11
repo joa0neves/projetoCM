@@ -3,4 +3,14 @@
     <string name="app_name">projetoCM</string>
     <string name="login">Entrar</string>
     <string name="registar">Criar Conta</string>
+    <string name="noaccount">Ainda não tem conta? Registe-se</string>
+    <string name="login_failed">Login sem sucesso</string>
+    <string name="invalid_password">Password tem de ter mais de 5 caracters</string>
+    <string name="invalid_username">username não disponivel</string>
+    <string name="welcome">Bem-Vindo!</string>
+    <string name="action_sign_in_short">Entrar</string>
+    <string name="action_sign_in">Entrar ou Registar</string>
+    <string name="prompt_password">Password</string>
+    <string name="prompt_email">Password</string>
+    <string name="title_activity_login">Login</string>
 </resources>

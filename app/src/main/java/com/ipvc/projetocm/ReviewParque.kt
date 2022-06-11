@@ -25,6 +25,7 @@ class ReviewParque : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_review_parque)
+        supportActionBar?.hide()
 
 
         val button = findViewById<Button>(R.id.btSubmit)

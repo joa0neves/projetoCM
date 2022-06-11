@@ -21,4 +21,9 @@ interface EndPoints {
                  @Field("descr") descr: String?,
                  @Field("idUser") idUser: Int?): Call<DefaultResponse>
 
+    @FormUrlEncoded
+    @POST("login.php")
+    fun postLogin(@Field("email") email: String?,
+                   @Field("password") password: String?): Call<DefaultResponse>
+
 }
