@@ -16,6 +16,18 @@
         android:theme="@style/Theme.ProjetoCM"
         tools:targetApi="31">
         <activity
+            android:name=".MbWay"
+            android:exported="false" />
+        <activity
+            android:name=".PayPal"
+            android:exported="false" />
+        <activity
+            android:name=".CartaoMultibanco"
+            android:exported="false" />
+        <activity
+            android:name=".Pagamento"
+            android:exported="false" />
+        <activity
             android:name=".DetalhesBilhete"
             android:exported="false" />
         <activity
