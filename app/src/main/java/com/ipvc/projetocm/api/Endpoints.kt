@@ -32,7 +32,7 @@ interface EndPoints {
     @POST("postBilhete.php")
     fun postBilhete(@Field("data") data: String?,
                  @Field("tempo") tempo: Int?,
-                 @Field("valor") password: Double?,
+                 @Field("valor") valor: Double?,
                  @Field("idUser") idUser: Int?): Call<DefaultResponse>
 
     @FormUrlEncoded

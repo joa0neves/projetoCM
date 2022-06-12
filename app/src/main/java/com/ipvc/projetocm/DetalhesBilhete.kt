@@ -21,8 +21,8 @@ class DetalhesBilhete : AppCompatActivity() {
         val tvReservaTotalaPagar = findViewById<TextView>(R.id.tvReservaTotalaPagar)
         tvReservaTotalaPagar.setText(parametroTotalBilhete)
 
-        val parametroNomeBilhete = intent.getStringExtra(PARAM_NOME_BILHETE)
-        val tvNomeBilhete = findViewById<TextView>(R.id.tvReservaNome)
-        tvNomeBilhete.setText(parametroNomeBilhete)
+        //val parametroNomeBilhete = intent.getStringExtra(PARAM_NOME_BILHETE)
+        //val tvNomeBilhete = findViewById<TextView>(R.id.tvReservaNome)
+        //tvNomeBilhete.setText(parametroNomeBilhete)
     }
 }
