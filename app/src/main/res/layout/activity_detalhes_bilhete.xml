@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".DetalhesBilhete">
+
+    <TextView
+        android:id="@+id/tvDetalheReserva"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="180dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="180dp"
+        android:fontFamily="serif"
+        android:text="Detalhes da Reserva"
+        android:textSize="30sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginEnd="166dp"
+        android:text="Informação sobre o seu bilhete"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvDetalheReserva" />
+
+    <TextView
+        android:id="@+id/textViewNomeUtilizador"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="25dp"
+        android:layout_marginEnd="25dp"
+        android:text="Nome:"
+        android:textSize="30sp"
+        app:layout_constraintEnd_toStartOf="@+id/tvReservaNome"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView2" />
+
+    <TextView
+        android:id="@+id/tvReservaNome"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="25dp"
+        android:background="#000000"
+        android:text="Nome do Utilizador"
+        android:textColor="#FFFFFF"
+        android:textIsSelectable="false"
+        android:textSize="30sp"
+        app:layout_constraintStart_toEndOf="@+id/textViewNomeUtilizador"
+        app:layout_constraintTop_toBottomOf="@+id/textView2" />
+
+    <TextView
+        android:id="@+id/textViewHoraEntrada"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="25dp"
+        android:text="Hora de Entrada:"
+        android:textSize="30sp"
+        app:layout_constraintEnd_toStartOf="@+id/tvReservaHoraInicio"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewNomeUtilizador" />
+
+    <TextView
+        android:id="@+id/tvReservaHoraInicio"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="20dp"
+        android:background="#000000"
+        android:text="Hora de Entrada"
+        android:textColor="#FFFFFF"
+        android:textIsSelectable="false"
+        android:textSize="30sp"
+        app:layout_constraintStart_toEndOf="@+id/textViewHoraEntrada"
+        app:layout_constraintTop_toBottomOf="@+id/tvReservaNome" />
+
+    <TextView
+        android:id="@+id/textViewTempoIdealizado"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="25dp"
+        android:text="Tempo Estimado:"
+        android:textSize="30sp"
+        app:layout_constraintEnd_toStartOf="@+id/tvReservaTempoDesejado"
+        app:layout_constraintHorizontal_bias="0.666"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewHoraEntrada" />
+
+    <TextView
+        android:id="@+id/tvReservaTempoDesejado"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="20dp"
+        android:background="#000000"
+        android:text="Tempo Idealizado"
+        android:textColor="#FFFFFF"
+        android:textIsSelectable="false"
+        android:textSize="30sp"
+        app:layout_constraintStart_toEndOf="@+id/textViewTempoIdealizado"
+        app:layout_constraintTop_toBottomOf="@+id/tvReservaHoraInicio" />
+
+    <TextView
+        android:id="@+id/textViewTotalBilhete"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="25dp"
+        android:text="Preço:"
+        android:textSize="30sp"
+        app:layout_constraintEnd_toStartOf="@+id/tvReservaTotalaPagar"
+        app:layout_constraintHorizontal_bias="0.565"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewTempoIdealizado" />
+
+    <TextView
+        android:id="@+id/tvReservaTotalaPagar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="20dp"
+        android:background="#000000"
+        android:text="Preço do Bilhete"
+        android:textColor="#FFFFFF"
+        android:textIsSelectable="false"
+        android:textSize="30sp"
+        app:layout_constraintStart_toEndOf="@+id/textViewTotalBilhete"
+        app:layout_constraintTop_toBottomOf="@+id/tvReservaTempoDesejado" />
+
+    <Button
+        android:id="@+id/btReservaPagar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginEnd="50dp"
+        android:fontFamily="s"
+        android:text="Pagar"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvReservaTotalaPagar"
+        tools:fontFamily="serif" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
