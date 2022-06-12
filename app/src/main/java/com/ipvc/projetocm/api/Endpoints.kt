@@ -28,4 +28,15 @@ interface EndPoints {
     fun postLogin(@Field("email") email: String?,
                    @Field("password") password: String?): Call<Id>
 
+    @FormUrlEncoded
+    @POST("postBilhete.php")
+    fun postBilhete(@Field("data") data: String?,
+                 @Field("tempo") tempo: Int?,
+                 @Field("valor") password: Double?,
+                 @Field("idUser") idUser: Int?): Call<DefaultResponse>
+
+    @FormUrlEncoded
+    @POST("updatePagamento.php")
+    fun updatePagamento(@Field("id") data: Int?): Call<DefaultResponse>
+
 }
