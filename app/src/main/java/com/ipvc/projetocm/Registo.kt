@@ -51,7 +51,7 @@ class Registo : AppCompatActivity() {
                         }
 
                         override fun onResponse(call: Call<DefaultResponse>, response: Response<DefaultResponse>) {
-                            Toast.makeText(applicationContext, response.body()?.message, Toast.LENGTH_LONG).show()
+                            Toast.makeText(applicationContext, R.string.accountCreated, Toast.LENGTH_LONG).show()
                         }
                     })
             }

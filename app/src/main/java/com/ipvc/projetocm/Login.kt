@@ -47,17 +47,23 @@ class Login : AppCompatActivity() {
                 ServiceBuilder.instance.postLogin(email, password)
                     .enqueue(object: Callback<Id> {
                         override fun onFailure(call: Call<Id>, t: Throwable) {
-
+                            Toast.makeText(applicationContext, t.message, Toast.LENGTH_LONG).show()
                         }
 
                         override fun onResponse(call: Call<Id>, response: Response<Id>) {
                             if(response.body()!!.id!="-1"){
                                 sharedPreference.edit().putString("PREF_ID",response.body()!!.id).apply()
+                                goTo()
                             }
                         }
                     })
             }
         }
+    }
+
+    fun goTo(){
+        val intent = Intent(this, PerfilUser::class.java)
+        startActivity(intent)
     }
 
     fun onClickRegisto(view: View) {

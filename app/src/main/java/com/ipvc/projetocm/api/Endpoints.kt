@@ -1,6 +1,7 @@
 package com.ipvc.projetocm.api
 
 import com.ipvc.projetocm.Model.Id
+import com.ipvc.projetocm.Model.Utilizador
 import retrofit2.Call
 import retrofit2.http.*
 
@@ -13,8 +14,9 @@ interface EndPoints {
                  @Field("password") password: String?,
                  @Field("contacto") contacto: String?): Call<DefaultResponse>
 
-    @GET("listUser.php")
-    fun getIndividualUser(@Field("id") id: Int?) : Call<DefaultResponse>
+    @FormUrlEncoded
+    @POST("listUser.php")
+    fun getIndividualUser(@Field("id") id: Int?) : Call<Utilizador>
 
     @FormUrlEncoded
     @POST("postReview.php")
@@ -38,5 +40,12 @@ interface EndPoints {
     @FormUrlEncoded
     @POST("updatePagamento.php")
     fun updatePagamento(@Field("id") data: Int?): Call<DefaultResponse>
+
+    @FormUrlEncoded
+    @POST("updateUser.php")
+    fun updateUser(@Field("id") id: Int?,
+                @Field("nome") nome: String?,
+                 @Field("email") email: String?,
+                 @Field("contacto") contacto: String?): Call<DefaultResponse>
 
 }
