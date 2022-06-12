@@ -39,4 +39,8 @@ interface EndPoints {
     @POST("updatePagamento.php")
     fun updatePagamento(@Field("id") data: Int?): Call<DefaultResponse>
 
+    @FormUrlEncoded
+    @POST("getIdBilhete.php")
+    fun getIdBilhete(@Field("idUser") idUser: Int?): Call<Id>
+
 }
