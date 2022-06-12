@@ -19,9 +19,6 @@
             android:name=".MbWay"
             android:exported="false" />
         <activity
-            android:name=".PayPal"
-            android:exported="false" />
-        <activity
             android:name=".CartaoMultibanco"
             android:exported="false" />
         <activity
