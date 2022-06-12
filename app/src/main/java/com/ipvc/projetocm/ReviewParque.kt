@@ -1,10 +1,10 @@
 package com.ipvc.projetocm
 
-import android.content.Intent
+import android.content.Context
+import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.TextUtils
-import android.util.Log
 import android.view.View
 import android.widget.Button
 import android.widget.EditText
@@ -27,6 +27,7 @@ class ReviewParque : AppCompatActivity() {
         setContentView(R.layout.activity_review_parque)
         supportActionBar?.hide()
 
+        val sharedPreference: SharedPreferences = getSharedPreferences("FILE_1", Context.MODE_PRIVATE)
 
         val button = findViewById<Button>(R.id.btSubmit)
         button.setOnClickListener {
@@ -44,11 +45,9 @@ class ReviewParque : AppCompatActivity() {
                     descr = commentView.toString()
                 }
 
-                //funcional basta trazer o id da sharedpreference
-                /*
-                val idUser = 1;
+                val idUser = sharedPreference.getString("PREF_ID", "");
 
-                ServiceBuilder.instance.postReview(estrelas, descr, idUser)
+                ServiceBuilder.instance.postReview(estrelas, descr, idUser?.toInt())
                     .enqueue(object: Callback<DefaultResponse> {
                         override fun onFailure(call: Call<DefaultResponse>, t: Throwable) {
                             Toast.makeText(applicationContext, t.message, Toast.LENGTH_LONG).show()
@@ -57,7 +56,7 @@ class ReviewParque : AppCompatActivity() {
                         override fun onResponse(call: Call<DefaultResponse>, response: Response<DefaultResponse>) {
                             Toast.makeText(applicationContext, response.body()?.message, Toast.LENGTH_LONG).show()
                         }
-                    })*/
+                    })
             }
             finish()
         }

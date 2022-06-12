@@ -19,8 +19,9 @@ interface EndPoints {
     @FormUrlEncoded
     @POST("postReview.php")
     fun postReview(@Field("estrelas") estrelas: Double?,
-                 @Field("descr") descr: String?,
-                 @Field("idUser") idUser: Int?): Call<DefaultResponse>
+                   @Field("descr") descr: String?,
+                   @Field("idUser") idUser: Int?
+    ): Call<DefaultResponse>
 
     @FormUrlEncoded
     @POST("login.php")
