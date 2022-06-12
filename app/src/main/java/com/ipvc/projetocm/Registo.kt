@@ -26,6 +26,7 @@ class Registo : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_registo)
+        supportActionBar?.hide()
 
         editNomeView = findViewById(R.id.etNome);
         editEmailView = findViewById(R.id.etEmail);

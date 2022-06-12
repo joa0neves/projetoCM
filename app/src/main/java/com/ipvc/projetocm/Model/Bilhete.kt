@@ -15,10 +15,9 @@ import androidx.room.PrimaryKey
 class Bilhete (
     @PrimaryKey(autoGenerate = true)
     val id: Int,
-    val nrLugar: String,
     val data: String,
     val qr: String,
-    val valor: Float,
+    val valor: Double,
     val estaPago: Boolean,
     val idUtilizador: Int
 )
