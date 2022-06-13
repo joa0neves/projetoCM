@@ -1,27 +1,23 @@
 package com.ipvc.projetocm
 
+import android.app.*
 import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
-import android.graphics.Bitmap
-import android.graphics.Color
+import android.os.Build
 import android.os.Bundle
 import android.text.TextUtils
 import android.util.Log
-import android.view.View
 import android.widget.Button
 import android.widget.EditText
-import android.widget.ImageView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.isVisible
-import com.ipvc.projetocm.Model.Id
 import com.ipvc.projetocm.api.DefaultResponse
 import com.ipvc.projetocm.api.ServiceBuilder
+import com.ipvc.projetocm.notifcacoes.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-import java.io.WriteAbortedException
 import java.util.*
 
 const val PARAM_HORA_ENTRADA = "hora_entrada";
@@ -41,9 +37,11 @@ class Bilhete : AppCompatActivity() {
         setContentView(R.layout.activity_bilhete)
         supportActionBar?.hide()
 
+        createNotificationChannel()
+
         val sharedPreference: SharedPreferences = getSharedPreferences("FILE_1", Context.MODE_PRIVATE)
 
-        editTempoView = findViewById(R.id.etTempoQuePensaFicar);
+        editTempoView = findViewById(R.id.etTempoQuePensaFicar)
 
         val key = generateKey(20)
 
@@ -68,6 +66,7 @@ class Bilhete : AppCompatActivity() {
 
                         override fun onResponse(call: Call<DefaultResponse>, response: Response<DefaultResponse>) {
                             Toast.makeText(applicationContext, "Bilhete Criado", Toast.LENGTH_LONG).show()
+                            scheduleNotification()
                         }
                     })
 
@@ -82,10 +81,92 @@ class Bilhete : AppCompatActivity() {
         }
     }
 
-    fun generateKey(length: Int) : String {
+    private fun generateKey(length: Int) : String {
         val charset = "ABCDEFGHIJKLMNOPQRSTUVWXTZabcdefghiklmnopqrstuvwxyz0123456789!@#$%^&*()-_=+[]{}/?:;|><"
         return (1..length)
             .map { charset.random() }
             .joinToString("")
     }
+
+    private fun createNotificationChannel()
+    {
+        val name = "Notif Channel"
+        val desc = "A Description of the Channel"
+        val importance = NotificationManager.IMPORTANCE_HIGH
+        val channel = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            NotificationChannel(channelID, name, importance)
+        } else {
+            TODO("VERSION.SDK_INT < O")
+        }
+        channel.description = desc
+        val notificationManager = getSystemService(NOTIFICATION_SERVICE) as NotificationManager
+        notificationManager.createNotificationChannel(channel)
+        Log.d("teste","create")
+    }
+
+    private fun scheduleNotification()
+    {
+        val intent = Intent(applicationContext, Notificacao::class.java)
+        val title = "A SUA RESERVA ACABOU"
+        val message = "Tem 15 minutos para remover o seu veiculo!"
+        intent.putExtra(titleExtra, title)
+        intent.putExtra(messageExtra, message)
+
+        val pendingIntent = PendingIntent.getBroadcast(
+            applicationContext,
+            notificationID,
+            intent,
+            PendingIntent.FLAG_IMMUTABLE or PendingIntent.FLAG_UPDATE_CURRENT
+        )
+        Log.d("teste","pending")
+
+        val alarmManager = getSystemService(Context.ALARM_SERVICE) as AlarmManager
+        val time = getTime()
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            Log.d("teste","show")
+            alarmManager.setExactAndAllowWhileIdle(
+                AlarmManager.RTC_WAKEUP,
+                time,
+                pendingIntent
+            )
+        }
+        showAlert(time, title, message)
+        Log.d("teste","show")
+    }
+
+    private fun showAlert(time: Long, title: String, message: String)
+    {
+        val date = Date(time)
+        val dateFormat = android.text.format.DateFormat.getLongDateFormat(applicationContext)
+        val timeFormat = android.text.format.DateFormat.getTimeFormat(applicationContext)
+
+        AlertDialog.Builder(this)
+            .setTitle("Notification Scheduled")
+            .setMessage(
+                "Title: " + title +
+                        "\nMessage: " + message +
+                        "\nAt: " + dateFormat.format(date) + " " + timeFormat.format(date))
+            .setPositiveButton("Okay"){_,_ ->}
+            .show()
+    }
+
+    private fun getTime(): Long
+    {
+        editTempoView = findViewById(R.id.etTempoQuePensaFicar);
+        val year = Calendar.getInstance().get(Calendar.YEAR)
+        val month = Calendar.getInstance().get(Calendar.MONTH)
+        val day = Calendar.getInstance().get(Calendar.DAY_OF_MONTH)
+        val hour = Calendar.getInstance().get(Calendar.HOUR_OF_DAY)
+        val minute = Calendar.getInstance().get(Calendar.MINUTE)
+        val tempo = editTempoView.text.toString().toInt()
+
+        val calendar = Calendar.getInstance()
+        calendar.set(year, month, day, hour, minute)
+        calendar.add(Calendar.MINUTE,tempo)
+        Log.d("teste",calendar.toString())
+        return calendar.timeInMillis
+    }
+
+
+
 }
