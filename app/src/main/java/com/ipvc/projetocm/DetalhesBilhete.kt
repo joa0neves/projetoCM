@@ -20,6 +20,7 @@ class DetalhesBilhete : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_detalhes_bilhete)
+        supportActionBar?.hide()
 
         val parametroHoraEntrada = intent.getStringExtra(PARAM_HORA_ENTRADA)
         val textView = findViewById<TextView>(R.id.tvReservaHoraInicio)

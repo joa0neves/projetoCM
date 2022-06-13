@@ -9,6 +9,7 @@ class Pagamento : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_pagamento)
+        supportActionBar?.hide()
     }
 
     fun pagarCartaoMultibanco(view: View) {
