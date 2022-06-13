@@ -63,7 +63,7 @@ class Login : AppCompatActivity() {
     }
 
     fun goTo(){
-        val intent = Intent(this, Bilhete::class.java)
+        val intent = Intent(this, HistoricoReservas::class.java)
         startActivity(intent)
     }
 

@@ -7,13 +7,16 @@ import android.graphics.Bitmap
 import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
+import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
+import androidx.core.view.isVisible
 import com.google.zxing.BarcodeFormat
 import com.google.zxing.qrcode.QRCodeWriter
 import com.ipvc.projetocm.Model.Id
-import com.ipvc.projetocm.api.DefaultResponse
+import com.ipvc.projetocm.api.Pagamentos
 import com.ipvc.projetocm.api.ServiceBuilder
 import retrofit2.Call
 import retrofit2.Callback
@@ -23,10 +26,11 @@ import java.io.WriteAbortedException
 class DetalhesBilhete : AppCompatActivity() {
 
     private lateinit var qrImage:ImageView
-
-    //val sharedPreference: SharedPreferences = getSharedPreferences("FILE_1", Context.MODE_PRIVATE)
+    private lateinit var key:String
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        val sharedPreference: SharedPreferences = getSharedPreferences("FILE_1", Context.MODE_PRIVATE)
+
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_detalhes_bilhete)
         supportActionBar?.hide()
@@ -43,7 +47,9 @@ class DetalhesBilhete : AppCompatActivity() {
         val tvReservaTotalaPagar = findViewById<TextView>(R.id.tvReservaTotalaPagar)
         tvReservaTotalaPagar.setText(parametroTotalBilhete)
 
-        val key = intent.getStringExtra(PARAM_KEY)
+        key = intent.getStringExtra(PARAM_KEY).toString()
+
+        sharedPreference.edit().putString("PREF_KEY", key).apply()
 
         qrImage=findViewById(R.id.imageqr)
 
@@ -63,11 +69,12 @@ class DetalhesBilhete : AppCompatActivity() {
         }catch (e: WriteAbortedException){
             e.printStackTrace()
         }
+        val button = findViewById<Button>(R.id.btReservaPagar)
+        button.setOnClickListener {
+            val intent = Intent(this, Pagamento::class.java).apply {}
+            startActivity(intent)
+        }
 
-        val intent = Intent(this, Pagamento::class.java).apply {}
-        startActivity(intent)
-
-        /*
         val idUser = sharedPreference.getString("PREF_ID", "");
 
         ServiceBuilder.instance.getIdBilhete(idUser?.toInt())
@@ -81,9 +88,46 @@ class DetalhesBilhete : AppCompatActivity() {
                 }
             }
         })
-        */
-        //val parametroNomeBilhete = intent.getStringExtra(PARAM_NOME_BILHETE)
-        //val tvNomeBilhete = findViewById<TextView>(R.id.tvReservaNome)
-        //tvNomeBilhete.setText(parametroNomeBilhete)
+
+        ServiceBuilder.instance.getEstadoPagamento(key)
+            .enqueue(object: Callback<Pagamentos> {
+                override fun onFailure(call: Call<Pagamentos>, t: Throwable) {
+                    //Toast.makeText(applicationContext, t.message, Toast.LENGTH_LONG).show()
+                }
+                override fun onResponse(call: Call<Pagamentos>, response: Response<Pagamentos>) {
+                    if(response.body()!!.estaPago != 0){
+                        button.isVisible = false
+                    }
+                }
+            })
+
+    }
+
+    override fun onResume() {
+        super.onResume()
+
+        val sharedPreference: SharedPreferences = getSharedPreferences("FILE_1", Context.MODE_PRIVATE)
+
+        val textView = findViewById<TextView>(R.id.tvReservaHoraInicio)
+        val textView2 = findViewById<TextView>(R.id.tvReservaTempoDesejado)
+        val tvReservaTotalaPagar = findViewById<TextView>(R.id.tvReservaTotalaPagar)
+
+        val key = intent.getStringExtra(PARAM_KEY2);
+
+        val button = findViewById<Button>(R.id.btReservaPagar)
+        ServiceBuilder.instance.getEstadoPagamento(key)
+            .enqueue(object: Callback<Pagamentos> {
+                override fun onFailure(call: Call<Pagamentos>, t: Throwable) {
+                    //Toast.makeText(applicationContext, t.message, Toast.LENGTH_LONG).show()
+                }
+                override fun onResponse(call: Call<Pagamentos>, response: Response<Pagamentos>) {
+                    if(response.body()!!.estaPago!=0){
+                        button.isVisible = false
+                    }
+                    textView.setText(response.body()!!.data)
+                    textView2.setText(response.body()!!.tempo)
+                    tvReservaTotalaPagar.setText(response.body()!!.valor)
+                }
+            })
     }
 }

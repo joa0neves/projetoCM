@@ -16,7 +16,10 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
+const val PARAM_KEY2 = "hora_entrada";
+
 class MbWay : AppCompatActivity() {
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_mb_way)
@@ -35,7 +38,6 @@ class MbWay : AppCompatActivity() {
                 Toast.makeText(this, "Insira o número do contacto do MwBay que vai pagar", Toast.LENGTH_SHORT).show()
             }
             else {
-                //ServiceBuilder.instance.postBilhete(data, tempo, valor, idUser?.toInt())
                 ServiceBuilder.instance.updatePagamento(idBilhete?.toInt())
                     .enqueue(object: Callback<DefaultResponse> {
                         override fun onFailure(call: Call<DefaultResponse>, t: Throwable) {
@@ -47,16 +49,12 @@ class MbWay : AppCompatActivity() {
                         }
                     })
             }
-            finish()
+            val intent = Intent(this, DetalhesBilhete::class.java).apply{
+                putExtra(PARAM_KEY2, sharedPreference.getString("PREF_KEY", ""))
+            }
+
+            startActivity(intent)
         }
     }
 
-    /*
-    fun ConfirmarPagMbWay(view: View) {
-        val etcontactoDoMbWayAPagar = findViewById<EditText>(R.id.etcontactoDoMbWayAPagar)
-
-        if (etcontactoDoMbWayAPagar.text.isEmpty()){
-            Toast.makeText(this, "Insira o número do contacto do MwBay que vai pagar", Toast.LENGTH_SHORT).show()
-        }
-    }*/
 }

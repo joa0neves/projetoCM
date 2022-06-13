@@ -53,7 +53,6 @@ class CartaoMultibanco : AppCompatActivity() {
                 Toast.makeText(this, "Insira o nome do utilizador do cartão do cartão multibanco", Toast.LENGTH_SHORT).show()
             }
             else {
-                //ServiceBuilder.instance.postBilhete(data, tempo, valor, idUser?.toInt())
                 ServiceBuilder.instance.updatePagamento(idBilhete?.toInt())
                     .enqueue(object: Callback<DefaultResponse> {
                         override fun onFailure(call: Call<DefaultResponse>, t: Throwable) {
@@ -65,30 +64,10 @@ class CartaoMultibanco : AppCompatActivity() {
                         }
                     })
             }
-            finish()
+            val intent = Intent(this, DetalhesBilhete::class.java).apply{
+                putExtra(PARAM_KEY2, sharedPreference.getString("PREF_KEY", ""))
+            }
+            startActivity(intent)
         }
     }
-    /*
-    fun ConfirmarPagCartaoMult(view: View) {
-        val etNomeDoCartao = findViewById<EditText>(R.id.etNomeDoCartao)
-        val etNumeroDoCartao = findViewById<EditText>(R.id.etNumeroDoCartao)
-        val etValidadeDoCartao = findViewById<EditText>(R.id.etValidadeDoCartao)
-        val etCVV2CVC2 = findViewById<EditText>(R.id.etCVV2CVC2)
-
-        if (etNomeDoCartao.text.isEmpty() && etNumeroDoCartao.text.isEmpty() && etValidadeDoCartao.text.isEmpty() && etCVV2CVC2.text.isEmpty()){
-            Toast.makeText(this, "Insira os dados do cartão multibanco", Toast.LENGTH_SHORT).show()
-        }else if (etNomeDoCartao.text.isNotEmpty() && etNumeroDoCartao.text.isEmpty() && etValidadeDoCartao.text.isEmpty() && etCVV2CVC2.text.isEmpty()){
-            Toast.makeText(this, "Insira os dados do cartão multibanco que lhe faltam preencher", Toast.LENGTH_SHORT).show()
-        }else if (etNomeDoCartao.text.isNotEmpty() && etNumeroDoCartao.text.isNotEmpty() && etValidadeDoCartao.text.isEmpty() && etCVV2CVC2.text.isEmpty()){
-            Toast.makeText(this, "Insira os dados do cartão multibanco que lhe faltam preencher", Toast.LENGTH_SHORT).show()
-        }else if (etNomeDoCartao.text.isNotEmpty() && etNumeroDoCartao.text.isNotEmpty() && etValidadeDoCartao.text.isNotEmpty() && etCVV2CVC2.text.isEmpty()){
-            Toast.makeText(this, "Insira o CVV2/CVC2 do cartão multibanco", Toast.LENGTH_SHORT).show()
-        }else if (etNomeDoCartao.text.isNotEmpty() && etNumeroDoCartao.text.isNotEmpty() && etValidadeDoCartao.text.isEmpty() && etCVV2CVC2.text.isNotEmpty()){
-            Toast.makeText(this, "Insira a validade do cartão do cartão multibanco", Toast.LENGTH_SHORT).show()
-        }else if (etNomeDoCartao.text.isNotEmpty() && etNumeroDoCartao.text.isEmpty() && etValidadeDoCartao.text.isNotEmpty() && etCVV2CVC2.text.isNotEmpty()){
-            Toast.makeText(this, "Insira o número do cartão do cartão multibanco", Toast.LENGTH_SHORT).show()
-        }else if (etNomeDoCartao.text.isEmpty() && etNumeroDoCartao.text.isNotEmpty() && etValidadeDoCartao.text.isNotEmpty() && etCVV2CVC2.text.isNotEmpty()){
-            Toast.makeText(this, "Insira o nome do utilizador do cartão do cartão multibanco", Toast.LENGTH_SHORT).show()
-        }
-    }*/
 }

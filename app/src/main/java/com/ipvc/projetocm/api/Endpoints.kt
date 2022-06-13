@@ -2,6 +2,7 @@ package com.ipvc.projetocm.api
 
 import com.ipvc.projetocm.Model.Id
 import com.ipvc.projetocm.Model.Utilizador
+import com.ipvc.projetocm.api.Bilhetes
 import retrofit2.Call
 import retrofit2.http.*
 
@@ -58,7 +59,12 @@ interface EndPoints {
 
     @FormUrlEncoded
     @POST("getBilhetesAntigos.php")
-    fun getBilhetesAntigos(@Field("idUser") idUser: Int?): Call<List<Bilhete>>
+    fun getBilhetesAntigos(@Field("idUser") idUser: Int?): Call<List<Bilhetes>>
+
+
+    @FormUrlEncoded
+    @POST("getEstadoPagamento.php")
+    fun getEstadoPagamento(@Field("qr") qr: String?): Call<Pagamentos>
 
 
 }

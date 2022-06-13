@@ -14,8 +14,8 @@ import android.widget.EditText
 import android.widget.ImageView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import com.google.zxing.BarcodeFormat
-import com.google.zxing.qrcode.QRCodeWriter
+import androidx.core.view.isVisible
+import com.ipvc.projetocm.Model.Id
 import com.ipvc.projetocm.api.DefaultResponse
 import com.ipvc.projetocm.api.ServiceBuilder
 import retrofit2.Call
@@ -39,11 +39,13 @@ class Bilhete : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_bilhete)
+        supportActionBar?.hide()
 
         val sharedPreference: SharedPreferences = getSharedPreferences("FILE_1", Context.MODE_PRIVATE)
 
         editTempoView = findViewById(R.id.etTempoQuePensaFicar);
 
+        val key = generateKey(20)
 
         val button = findViewById<Button>(R.id.btConfirmaBilhete)
         button.setOnClickListener {
@@ -57,10 +59,8 @@ class Bilhete : AppCompatActivity() {
                 val tempo = Integer.parseInt(editTempoView.text.toString());
                 val valor = (2 + tempo) * 0.25
                 val idUser = sharedPreference.getString("PREF_ID", "");
-                val key = generateKey(20)
 
-
-                ServiceBuilder.instance.postBilhete(data, tempo, valor, idUser?.toInt(),key)
+                ServiceBuilder.instance.postBilhete(data, tempo, valor, idUser?.toInt(), key)
                     .enqueue(object: Callback<DefaultResponse> {
                         override fun onFailure(call: Call<DefaultResponse>, t: Throwable) {
                             Toast.makeText(applicationContext, t.message, Toast.LENGTH_LONG).show()
@@ -87,10 +87,5 @@ class Bilhete : AppCompatActivity() {
         return (1..length)
             .map { charset.random() }
             .joinToString("")
-    }
-
-    fun goToPerfil(view: View) {
-        val intent = Intent(this, HistoricoReservas::class.java)
-        startActivity(intent)
     }
 }

@@ -108,8 +108,8 @@ class PerfilUser : AppCompatActivity() {
         }
     }
 
-    fun historicoReservas(view: View) {
-        val intent = Intent(this, HistoricoReservas::class.java)
+    fun goToReview(view: View) {
+        val intent = Intent(this, ReviewParque::class.java).apply {  }
         startActivity(intent)
     }
 }

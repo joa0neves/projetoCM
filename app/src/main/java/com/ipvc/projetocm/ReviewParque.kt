@@ -1,6 +1,7 @@
 package com.ipvc.projetocm
 
 import android.content.Context
+import android.content.Intent
 import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -50,16 +51,20 @@ class ReviewParque : AppCompatActivity() {
                 ServiceBuilder.instance.postReview(estrelas, descr, idUser?.toInt())
                     .enqueue(object: Callback<DefaultResponse> {
                         override fun onFailure(call: Call<DefaultResponse>, t: Throwable) {
-                            Toast.makeText(applicationContext, t.message, Toast.LENGTH_LONG).show()
+                            //Toast.makeText(applicationContext, t.message, Toast.LENGTH_LONG).show()
                         }
 
                         override fun onResponse(call: Call<DefaultResponse>, response: Response<DefaultResponse>) {
                             Toast.makeText(applicationContext, response.body()?.message, Toast.LENGTH_LONG).show()
+                            goTo()
                         }
                     })
             }
-            finish()
+            //finish()
         }
     }
-
+    fun goTo(){
+        val intent = Intent(this, PerfilUser::class.java).apply {  }
+        startActivity(intent)
+    }
 }
