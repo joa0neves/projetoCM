@@ -14,7 +14,7 @@
         android:layout_marginTop="30dp"
         android:layout_marginEnd="180dp"
         android:fontFamily="serif"
-        android:text="Cartão Multibanco"
+        android:text="@string/cartao_multi"
         android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -27,7 +27,7 @@
         android:layout_marginStart="50dp"
         android:layout_marginTop="50dp"
         android:layout_marginEnd="166dp"
-        android:text="Introduza os seus dados do cartão:"
+        android:text="@string/cartao_info"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvPagamentoCartaoMultibanco" />
@@ -42,7 +42,7 @@
         android:ems="10"
         android:fontFamily="serif"
         android:inputType="textPersonName"
-        android:hint="Nome do Cartão"
+        android:hint="@string/cartao_nome"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView" />
@@ -57,7 +57,7 @@
         android:ems="10"
         android:fontFamily="serif"
         android:inputType="number"
-        android:hint="Número do Cartão"
+        android:hint="@string/cartao_numeros"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/etNomeDoCartao" />
@@ -70,7 +70,7 @@
         android:layout_marginTop="30dp"
         android:ems="10"
         android:inputType="date"
-        android:hint="Validade"
+        android:hint="@string/cartao_data"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/etNumeroDoCartao" />
 
@@ -83,7 +83,7 @@
         android:layout_marginEnd="50dp"
         android:ems="10"
         android:inputType="number"
-        android:hint="CVV2/CVC2"
+        android:hint="@string/cartao_ccv"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/etValidadeDoCartao"
         app:layout_constraintTop_toBottomOf="@+id/etNumeroDoCartao" />
@@ -95,8 +95,7 @@
         android:layout_marginStart="50dp"
         android:layout_marginTop="50dp"
         android:layout_marginEnd="50dp"
-        android:onClick="ConfirmarPagCartaoMult"
-        android:text="Confirmar"
+        android:text="@string/btn_confirm"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/etValidadeDoCartao" />
