@@ -16,6 +16,9 @@
         android:theme="@style/Theme.ProjetoCM"
         tools:targetApi="31">
         <activity
+            android:name=".HistoricoReservas"
+            android:exported="false" />
+        <activity
             android:name=".MbWay"
             android:exported="false" />
         <activity

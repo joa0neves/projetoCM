@@ -55,5 +55,9 @@ interface EndPoints {
     fun updatePassword(@Field("id") id: Int?,
                    @Field("password") password: String?): Call<DefaultResponse>
 
+    @FormUrlEncoded
+    @POST("getBilhetesAntigos.php")
+    fun getBilhetesAntigos(@Field("idUser") idUser: Int?): Call<List<Bilhete>>
+
 
 }
