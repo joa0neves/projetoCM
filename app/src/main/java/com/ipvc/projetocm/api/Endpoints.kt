@@ -51,4 +51,9 @@ interface EndPoints {
                  @Field("email") email: String?,
                  @Field("contacto") contacto: String?): Call<DefaultResponse>
 
+    @POST("updatePassword.php")
+    fun updatePassword(@Field("id") id: Int?,
+                   @Field("password") password: String?): Call<DefaultResponse>
+
+
 }

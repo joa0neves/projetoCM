@@ -15,4 +15,6 @@
     <string name="title_activity_login">Login</string>
     <string name="cred_erradas">Email e/ou password errada(s)</string>
     <string name="accountCreated">Conta Criada! Pode entrar!</string>
+    <string name="prompt_nova_password">Nova Password</string>
+    <string name="prompt_conf_password">Repita a Password</string>
 </resources>

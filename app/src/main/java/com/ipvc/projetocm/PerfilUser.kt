@@ -4,6 +4,7 @@ import android.content.Context
 import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.text.TextUtils
 import android.util.Log
 import android.view.View
 import android.widget.EditText
@@ -22,6 +23,8 @@ class PerfilUser : AppCompatActivity() {
     private lateinit var editNomeView: EditText
     private lateinit var editEmailView: EditText
     private lateinit var editContactoView: EditText
+    private lateinit var editNovaPassView: EditText
+    private lateinit var editConfPassView: EditText
     private lateinit var textNomeView: TextView
     private lateinit var id :String
 
@@ -43,6 +46,8 @@ class PerfilUser : AppCompatActivity() {
         editEmailView = findViewById(R.id.etEmail)
         editContactoView = findViewById(R.id.etContacto)
 
+        editNovaPassView = findViewById(R.id.etPassword)
+        editConfPassView = findViewById(R.id.etPassword2)
 
         val sharedPreference: SharedPreferences = getSharedPreferences("FILE_1", Context.MODE_PRIVATE)
 
@@ -66,15 +71,13 @@ class PerfilUser : AppCompatActivity() {
             })
     }
 
-    fun alterarPassword(view: View) {}
-
     fun atualizar(view: View){
         if(editNomeView.text.toString()!=nomeInicial || editEmailView.text.toString()!=emailInicial || editContactoView.text.toString()!=contactoInicial){
             ServiceBuilder.instance.updateUser(id!!.toInt(),editNomeView.text.toString(),editEmailView.text.toString(),editContactoView.text.toString())
                 .enqueue(object: Callback<DefaultResponse> {
                     override fun onFailure(call: Call<DefaultResponse>, t: Throwable) {
                         Toast.makeText(applicationContext, t.message, Toast.LENGTH_LONG).show()
-                        Log.d("teste", t.message.toString())
+                        //Log.d("teste", t.message.toString())
                     }
 
                     override fun onResponse(call: Call<DefaultResponse>, response: Response<DefaultResponse>) {
@@ -83,6 +86,24 @@ class PerfilUser : AppCompatActivity() {
                 })
             }else{
             Toast.makeText(applicationContext, "É necessario fazer alteracoes", Toast.LENGTH_LONG).show()
+        }
+    }
+
+    fun atualizarPass(view: View) {
+        if(TextUtils.isEmpty(editNovaPassView.text) && TextUtils.isEmpty(editConfPassView.text)){
+            Toast.makeText(applicationContext, "Preencha os campos", Toast.LENGTH_LONG).show()
+        }else if(editNovaPassView.text.toString()!=editConfPassView.text.toString()){
+            Toast.makeText(applicationContext, "Palavras passes não respondem", Toast.LENGTH_LONG).show()
+        }else{
+            ServiceBuilder.instance.updatePassword(id!!.toInt(), editNovaPassView.text.toString()).enqueue(object: Callback<DefaultResponse> {
+                override fun onFailure(call: Call<DefaultResponse>, t: Throwable) {
+                    Toast.makeText(applicationContext, t.message, Toast.LENGTH_LONG).show()
+                }
+
+                override fun onResponse(call: Call<DefaultResponse>, response: Response<DefaultResponse>) {
+                    Toast.makeText(applicationContext, "Atualizacao com sucesso", Toast.LENGTH_LONG).show()
+                }
+            })
         }
     }
 }
