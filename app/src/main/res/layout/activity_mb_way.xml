@@ -14,7 +14,7 @@
         android:layout_marginTop="30dp"
         android:layout_marginEnd="180dp"
         android:fontFamily="serif"
-        android:text="Mbway"
+        android:text="@string/mbway"
         android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -27,7 +27,7 @@
         android:layout_marginStart="50dp"
         android:layout_marginTop="50dp"
         android:layout_marginEnd="166dp"
-        android:text="Introduza o conacto do pagamento:"
+        android:text="@string/mbway_text"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvPagamentoMbWay" />
@@ -42,7 +42,7 @@
         android:ems="10"
         android:fontFamily="serif"
         android:inputType="number"
-        android:hint="Contacto"
+        android:hint="@string/mbway_contacto"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView" />
@@ -54,8 +54,7 @@
         android:layout_marginStart="50dp"
         android:layout_marginTop="50dp"
         android:layout_marginEnd="50dp"
-        android:onClick="ConfirmarPagMbWay"
-        android:text="Confirmar"
+        android:text="@string/btn_confirm"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/etcontactoDoMbWayAPagar" />

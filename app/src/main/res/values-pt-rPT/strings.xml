@@ -17,4 +17,27 @@
     <string name="accountCreated">Conta Criada! Pode entrar!</string>
     <string name="prompt_nova_password">Nova Password</string>
     <string name="prompt_conf_password">Repita a Password</string>
+    <string name="bilhete_textvview">Bilhete</string>
+    <string name="bilhete_textview2">Preencha os dados do bilhete</string>
+    <string name="edit_minutos">Tempo necessário (minutos)</string>
+    <string name="btn_confirm">Confirmar</string>
+    <string name="cartao_multi">Cartão Multibanco</string>
+    <string name="cartao_info">Introduza os seus dados do cartão:</string>
+    <string name="cartao_ccv">CCV</string>
+    <string name="cartao_nome">Nome do Cartão</string>
+    <string name="cartao_numeros">Números do Cartão</string>
+    <string name="cartao_data">Validade</string>
+    <string name="mbway_contacto">Contact</string>
+    <string name="mbway_text">Introduza o contacto do pagamento:</string>
+    <string name="mbway">Mbway</string>
+    <string name="ticket_history">Histórico de Bilhetes</string>
+    <string name="no_tickets">NÃO TEM NENHUM BILHETE</string>
+    <string name="reservation_dettails">Detalhes da Reserva</string>
+    <string name="info_ticket">Informação sobre o seu bilhete</string>
+    <string name="hora_entrada">Hora de Entrada</string>
+    <string name="time_chosen">Tempo escolhido</string>
+    <string name="Price">Preço</string>
+    <string name="pay">PAGAR</string>
+    <string name="payment">Pagamento</string>
+    <string name="payment_method_text">Escolha o seu método de pagamento:</string>
 </resources>
