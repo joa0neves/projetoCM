@@ -7,15 +7,42 @@
     android:layout_height="match_parent"
     tools:context=".HistoricoReservas">
 
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="180dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="180dp"
+        android:fontFamily="serif"
+        android:text="Histórico de Bilhetes"
+        android:textSize="30sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerview"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        tools:listitem="@layout/recyclerview_item"
+        android:layout_width="414dp"
+        android:layout_height="501dp"
+        android:layout_marginTop="20dp"
         android:padding="@dimen/big_padding"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/textView"
+        tools:listitem="@layout/recyclerview_item" />
+
+    <TextView
+        android:id="@+id/semBilheteView"
+        android:layout_width="373dp"
+        android:layout_height="84dp"
+        android:layout_marginTop="250dp"
+        android:text="NÃO TEM NENHUM BILHETE"
+        android:textSize="28sp"
+        app:layout_constraintTop_toBottomOf="@+id/textView"
+        tools:layout_editor_absoluteX="16dp"
+        tools:ignore="MissingConstraints" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

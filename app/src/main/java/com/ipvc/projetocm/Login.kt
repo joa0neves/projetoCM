@@ -34,12 +34,12 @@ class Login : AppCompatActivity() {
         editEmailView = findViewById(R.id.etEmail);
         editPasswordView = findViewById(R.id.etPassword);
 
-
         val button = findViewById<Button>(R.id.btPass)
         button.setOnClickListener {
             val replyIntent = Intent()
             if (TextUtils.isEmpty(editEmailView.text) && TextUtils.isEmpty(editPasswordView.text)) {
                 //setResult(Activity.RESULT_CANCELED, replyIntent)
+                Toast.makeText(applicationContext, "Login failed", Toast.LENGTH_LONG).show()
             } else {
                 val email = editEmailView.text.toString()
                 val password = editPasswordView.text.toString()
@@ -48,6 +48,7 @@ class Login : AppCompatActivity() {
                     .enqueue(object: Callback<Id> {
                         override fun onFailure(call: Call<Id>, t: Throwable) {
                             Toast.makeText(applicationContext, t.message, Toast.LENGTH_LONG).show()
+                            Toast.makeText(applicationContext, "Login failed", Toast.LENGTH_LONG).show()
                         }
 
                         override fun onResponse(call: Call<Id>, response: Response<Id>) {
@@ -62,7 +63,7 @@ class Login : AppCompatActivity() {
     }
 
     fun goTo(){
-        val intent = Intent(this, PerfilUser::class.java)
+        val intent = Intent(this, Bilhete::class.java)
         startActivity(intent)
     }
 

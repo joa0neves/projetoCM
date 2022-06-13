@@ -1,10 +1,11 @@
 package com.ipvc.projetocm.api
 
 import android.util.Base64
-import android.util.Log
+import com.google.gson.GsonBuilder
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
+
 
 object ServiceBuilder {
     /*private val client = OkHttpClient.Builder().build()
@@ -35,10 +36,14 @@ object ServiceBuilder {
             chain.proceed(request)
         }.build()
 
+    var gson = GsonBuilder()
+        .setLenient()
+        .create()
+
     val instance: EndPoints by lazy{
         val retrofit = Retrofit.Builder()
             .baseUrl(BASE_URL)
-            .addConverterFactory(GsonConverterFactory.create())
+            .addConverterFactory(GsonConverterFactory.create(gson))
             .client(okHttpClient)
             .build()
 

@@ -45,11 +45,9 @@ class Bilhete : AppCompatActivity() {
                 val data = dataMal.toString()
                 val tempo = Integer.parseInt(editTempoView.text.toString());
                 val valor = (2 + tempo) * 0.25
-                //val idUser = sharedPreference.getString("PREF_ID", "");
-                val idUser = 1;
+                val idUser = sharedPreference.getString("PREF_ID", "");
 
-                //ServiceBuilder.instance.postBilhete(data, tempo, valor, idUser?.toInt())
-                ServiceBuilder.instance.postBilhete(data, tempo, valor, idUser)
+                ServiceBuilder.instance.postBilhete(data, tempo, valor, idUser?.toInt())
                     .enqueue(object: Callback<DefaultResponse> {
                         override fun onFailure(call: Call<DefaultResponse>, t: Throwable) {
                             Toast.makeText(applicationContext, t.message, Toast.LENGTH_LONG).show()
@@ -67,37 +65,11 @@ class Bilhete : AppCompatActivity() {
                 }
                 startActivity(intent)
             }
-            //finish()
         }
-
-
-
     }
-    /*
-    fun MandarDetalhesReserva(view: View) {
-        val editText1 = findViewById<EditText>(R.id.etHoraDeEntrada)
-        val editText2 = findViewById<EditText>(R.id.etTempoQuePensaFicar)
 
-        val custoBilhete = 2
-        val iva = 0.25
-
-        if (editText1.text.toString().isEmpty() && editText2.text.toString().isEmpty()) {
-            Toast.makeText(this, "Insira os dados do bilhete que lhe faltam preencher", Toast.LENGTH_SHORT).show()
-        }else if (editText1.text.toString().isEmpty() && editText2.text.toString().isNotEmpty()){
-            Toast.makeText(this, "Insira a sua hora de entrada no parque", Toast.LENGTH_SHORT).show()
-        }else if (editText2.text.toString().isEmpty() && editText1.text.toString().isNotEmpty()){
-            Toast.makeText(this, "Insira o tempo que estima ficar no parque", Toast.LENGTH_SHORT).show()
-        }else{
-            val editText2TempoEstimado = Integer.parseInt(editText2.text.toString())
-            val totalBilhete = (custoBilhete + editText2TempoEstimado) * iva
-
-            val intent = Intent(this, DetalhesBilhete::class.java).apply {
-                putExtra(PARAM_HORA_ENTRADA, editText1.text.toString())
-                putExtra(PARAM_TEMPO_QUE_PENSA_FICAR, editText2.text.toString())
-                putExtra(PARAM_CUSTO_TOTAL_BILHETE, totalBilhete.toFloat().toString())
-            }
-
-            startActivity(intent)
-        }
-    }*/
+    fun goToPerfil(view: View) {
+        val intent = Intent(this, HistoricoReservas::class.java)
+        startActivity(intent)
+    }
 }
