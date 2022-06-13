@@ -8,6 +8,7 @@ import android.os.Bundle
 import android.text.TextUtils
 import android.util.Log
 import android.view.View
+import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
@@ -70,6 +71,28 @@ class PerfilUser : AppCompatActivity() {
                     contactoInicial=response.body()!!.contacto
                 }
             })
+
+        val buttonPass = findViewById<Button>(R.id.btAtualizarPass)
+        buttonPass.setOnClickListener {
+            if(TextUtils.isEmpty(editNovaPassView.text) && TextUtils.isEmpty(editConfPassView.text)){
+                Toast.makeText(applicationContext, "Preencha os campos", Toast.LENGTH_LONG).show()
+            }else if(editNovaPassView.text.toString()!=editConfPassView.text.toString()){
+                Toast.makeText(applicationContext, "Palavras passes não respondem", Toast.LENGTH_LONG).show()
+            }else if(editNovaPassView.text.toString()==editConfPassView.text.toString()){
+                ServiceBuilder.instance.updatePassword(id!!.toInt(), editNovaPassView.text.toString())
+                    .enqueue(object: Callback<DefaultResponse> {
+                        override fun onFailure(call: Call<DefaultResponse>, t: Throwable) {
+                            Toast.makeText(applicationContext, t.message, Toast.LENGTH_LONG).show()
+                        }
+
+                        override fun onResponse(call: Call<DefaultResponse>, response: Response<DefaultResponse>) {
+                            Toast.makeText(applicationContext, "Atualizacao com sucesso", Toast.LENGTH_LONG).show()
+                        }
+                    })
+                finish()
+            }
+        }
+
     }
 
     fun atualizar(view: View){
@@ -87,24 +110,6 @@ class PerfilUser : AppCompatActivity() {
                 })
             }else{
             Toast.makeText(applicationContext, "É necessario fazer alteracoes", Toast.LENGTH_LONG).show()
-        }
-    }
-
-    fun atualizarPass(view: View) {
-        if(TextUtils.isEmpty(editNovaPassView.text) && TextUtils.isEmpty(editConfPassView.text)){
-            Toast.makeText(applicationContext, "Preencha os campos", Toast.LENGTH_LONG).show()
-        }else if(editNovaPassView.text.toString()!=editConfPassView.text.toString()){
-            Toast.makeText(applicationContext, "Palavras passes não respondem", Toast.LENGTH_LONG).show()
-        }else{
-            ServiceBuilder.instance.updatePassword(id!!.toInt(), editNovaPassView.text.toString()).enqueue(object: Callback<DefaultResponse> {
-                override fun onFailure(call: Call<DefaultResponse>, t: Throwable) {
-                    Toast.makeText(applicationContext, t.message, Toast.LENGTH_LONG).show()
-                }
-
-                override fun onResponse(call: Call<DefaultResponse>, response: Response<DefaultResponse>) {
-                    Toast.makeText(applicationContext, "Atualizacao com sucesso", Toast.LENGTH_LONG).show()
-                }
-            })
         }
     }
 

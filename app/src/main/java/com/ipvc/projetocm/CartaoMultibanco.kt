@@ -54,25 +54,25 @@ class CartaoMultibanco : AppCompatActivity() {
             }
             else {
                 ServiceBuilder.instance.updatePagamento(idBilhete?.toInt())
-                    .enqueue(object: Callback<DefaultResponse> {
+                    .enqueue(object : Callback<DefaultResponse> {
                         override fun onFailure(call: Call<DefaultResponse>, t: Throwable) {
                             Toast.makeText(applicationContext, t.message, Toast.LENGTH_LONG).show()
                         }
 
-                        override fun onResponse(call: Call<DefaultResponse>, response: Response<DefaultResponse>) {
+                        override fun onResponse(
+                            call: Call<DefaultResponse>,
+                            response: Response<DefaultResponse>
+                        ) {
                             Toast.makeText(applicationContext, "Pago", Toast.LENGTH_LONG).show()
-                            goto()
                         }
                     })
+                val sharedPreference: SharedPreferences =
+                    getSharedPreferences("FILE_1", Context.MODE_PRIVATE)
+                val intent = Intent(this, DetalhesBilhete::class.java).apply {
+                    putExtra(PARAM_KEY2, sharedPreference.getString("PREF_KEY", ""))
+                }
+                startActivity(intent)
             }
         }
-    }
-
-    fun goto() {
-        val sharedPreference: SharedPreferences = getSharedPreferences("FILE_1", Context.MODE_PRIVATE)
-        val intent = Intent(this, DetalhesBilhete::class.java).apply{
-            putExtra(PARAM_KEY2, sharedPreference.getString("PREF_KEY", ""))
-        }
-        startActivity(intent)
     }
 }
