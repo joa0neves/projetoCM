@@ -45,16 +45,20 @@ class MbWay : AppCompatActivity() {
                         }
 
                         override fun onResponse(call: Call<DefaultResponse>, response: Response<DefaultResponse>) {
-                            Toast.makeText(applicationContext, response.body()?.message, Toast.LENGTH_LONG).show()
+                            Toast.makeText(applicationContext, "Pago", Toast.LENGTH_LONG).show()
+                            goto()
                         }
                     })
             }
-            val intent = Intent(this, DetalhesBilhete::class.java).apply{
-                putExtra(PARAM_KEY2, sharedPreference.getString("PREF_KEY", ""))
-            }
-
-            startActivity(intent)
         }
+    }
+
+    fun goto() {
+        val sharedPreference: SharedPreferences = getSharedPreferences("FILE_1", Context.MODE_PRIVATE)
+        val intent = Intent(this, DetalhesBilhete::class.java).apply{
+            putExtra(PARAM_KEY2, sharedPreference.getString("PREF_KEY", ""))
+        }
+        startActivity(intent)
     }
 
 }
