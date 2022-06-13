@@ -41,7 +41,7 @@ interface EndPoints {
 
     @FormUrlEncoded
     @POST("updatePagamento.php")
-    fun updatePagamento(@Field("id") data: Int?): Call<DefaultResponse>
+    fun updatePagamento(@Field("id") id: Int?): Call<DefaultResponse>
 
     @FormUrlEncoded
     @POST("getIdBilhete.php")
@@ -53,7 +53,8 @@ interface EndPoints {
                  @Field("email") email: String?,
                  @Field("contacto") contacto: String?): Call<DefaultResponse>
 
-    @POST("updatePassword.php")
+    @FormUrlEncoded
+    @POST("updateUserPass.php")
     fun updatePassword(@Field("id") id: Int?,
                    @Field("password") password: String?): Call<DefaultResponse>
 
