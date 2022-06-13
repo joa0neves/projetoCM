@@ -3,36 +3,20 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/School_Work/CM/app/src/main/res/layout/activity_detalhes_bilhete.xml" value="0.16614583333333333" />
         <entry key="..\:/School_Work/CM/app/src/main/res/layout/activity_login.xml" value="0.33" />
         <entry key="..\:/School_Work/CM/app/src/main/res/layout/activity_main.xml" value="0.1661600810536981" />
         <entry key="..\:/School_Work/CM/app/src/main/res/layout/activity_main2.xml" value="0.36666666666666664" />
+        <entry key="..\:/School_Work/CM/app/src/main/res/layout/activity_mb_way.xml" value="0.10960144927536232" />
         <entry key="..\:/School_Work/CM/app/src/main/res/layout/activity_perfil_user.xml" value="0.17831813576494426" />
         <entry key="..\:/School_Work/CM/app/src/main/res/layout/activity_registo.xml" value="0.17831813576494426" />
         <entry key="..\:/School_Work/CM/app/src/main/res/layout/activity_review_parque.xml" value="0.17831813576494426" />
-        <entry key="..\:/Users/MEIRA/Documents/GitHub/projetoCM/app/src/main/res/layout-w936dp/recyclerview_item.xml" value="0.27890625" />
-        <entry key="..\:/Users/MEIRA/Documents/GitHub/projetoCM/app/src/main/res/layout/activity_alterar_passe.xml" value="0.371875" />
-        <entry key="..\:/Users/MEIRA/Documents/GitHub/projetoCM/app/src/main/res/layout/activity_bilhete.xml" value="0.371875" />
-        <entry key="..\:/Users/MEIRA/Documents/GitHub/projetoCM/app/src/main/res/layout/activity_cartao_multibanco.xml" value="0.371875" />
-        <entry key="..\:/Users/MEIRA/Documents/GitHub/projetoCM/app/src/main/res/layout/activity_detalhes_bilhete.xml" value="0.371875" />
-        <entry key="..\:/Users/MEIRA/Documents/GitHub/projetoCM/app/src/main/res/layout/activity_historico_reservas.xml" value="0.33" />
         <entry key="..\:/Users/MEIRA/Documents/GitHub/projetoCM/app/src/main/res/layout/activity_login.xml" value="0.22" />
-        <entry key="..\:/Users/MEIRA/Documents/GitHub/projetoCM/app/src/main/res/layout/activity_main.xml" value="0.33" />
+        <entry key="..\:/Users/MEIRA/Documents/GitHub/projetoCM/app/src/main/res/layout/activity_main.xml" value="0.18085106382978725" />
         <entry key="..\:/Users/MEIRA/Documents/GitHub/projetoCM/app/src/main/res/layout/activity_main2.xml" value="0.18085106382978725" />
-        <entry key="..\:/Users/MEIRA/Documents/GitHub/projetoCM/app/src/main/res/layout/activity_pagamento.xml" value="0.371875" />
-        <entry key="..\:/Users/MEIRA/Documents/GitHub/projetoCM/app/src/main/res/layout/activity_perfil_user.xml" value="0.33" />
+        <entry key="..\:/Users/MEIRA/Documents/GitHub/projetoCM/app/src/main/res/layout/activity_perfil_user.xml" value="0.1" />
         <entry key="..\:/Users/MEIRA/Documents/GitHub/projetoCM/app/src/main/res/layout/activity_registo.xml" value="0.371875" />
         <entry key="..\:/Users/MEIRA/Documents/GitHub/projetoCM/app/src/main/res/layout/activity_review_parque.xml" value="0.1" />
-        <entry key="..\:/Users/MEIRA/Documents/GitHub/projetoCM/app/src/main/res/layout/recyclerview_item.xml" value="0.67" />
-        <entry key="..\:/Users/Tiago Soares/Documents/GitHub/projetoCM/app/src/main/res/layout/activity_bilhete.xml" value="0.1796875" />
-        <entry key="..\:/Users/Tiago Soares/Documents/GitHub/projetoCM/app/src/main/res/layout/activity_cartao_multibanco.xml" value="0.1796875" />
-        <entry key="..\:/Users/Tiago Soares/Documents/GitHub/projetoCM/app/src/main/res/layout/activity_detalhes_bilhete.xml" value="0.1796875" />
-        <entry key="..\:/Users/Tiago Soares/Documents/GitHub/projetoCM/app/src/main/res/layout/activity_historico_reservas.xml" value="0.1796875" />
-        <entry key="..\:/Users/Tiago Soares/Documents/GitHub/projetoCM/app/src/main/res/layout/activity_login.xml" value="0.1796875" />
-        <entry key="..\:/Users/Tiago Soares/Documents/GitHub/projetoCM/app/src/main/res/layout/activity_main.xml" value="0.1796875" />
-        <entry key="..\:/Users/Tiago Soares/Documents/GitHub/projetoCM/app/src/main/res/layout/activity_perfil_user.xml" value="0.1796875" />
-        <entry key="..\:/Users/Tiago Soares/Documents/GitHub/projetoCM/app/src/main/res/layout/activity_registo.xml" value="0.1796875" />
-        <entry key="..\:/Users/Tiago Soares/Documents/GitHub/projetoCM/app/src/main/res/layout/activity_review_parque.xml" value="0.1796875" />
-        <entry key="..\:/Users/Tiago Soares/Documents/GitHub/projetoCM/app/src/main/res/layout/recyclerview_item.xml" value="0.1796875" />
       </map>
     </option>
   </component>

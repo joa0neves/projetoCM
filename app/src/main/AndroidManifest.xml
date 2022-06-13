@@ -15,7 +15,7 @@
         android:theme="@style/Theme.AppCompat.Light"
         android:supportsRtl="true"
         tools:targetApi="31"
-        android:theme="@style/Theme.AppCompat.Light">
+        >
         <activity
             android:name=".HistoricoReservas"
             android:exported="false" />

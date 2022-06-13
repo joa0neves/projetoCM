@@ -35,7 +35,8 @@ interface EndPoints {
     fun postBilhete(@Field("data") data: String?,
                  @Field("tempo") tempo: Int?,
                  @Field("valor") valor: Double?,
-                 @Field("idUser") idUser: Int?): Call<DefaultResponse>
+                 @Field("idUser") idUser: Int?,
+                    @Field("qr") qr: String?): Call<DefaultResponse>
 
     @FormUrlEncoded
     @POST("updatePagamento.php")

@@ -8,6 +8,7 @@ import android.os.Bundle
 import android.view.View
 import android.widget.Button
 import android.widget.EditText
+import android.widget.ImageButton
 import android.widget.Toast
 import com.ipvc.projetocm.api.DefaultResponse
 import com.ipvc.projetocm.api.ServiceBuilder
@@ -24,7 +25,7 @@ class MbWay : AppCompatActivity() {
         val sharedPreference: SharedPreferences = getSharedPreferences("FILE_1", Context.MODE_PRIVATE)
         val idBilhete = sharedPreference.getString("PREF_BILHETE_ID", "");
 
-        val button = findViewById<Button>(R.id.buttonCartaoMultibanco)
+        val button = findViewById<ImageButton>(R.id.buttonCartaoMultibanco)
         button.setOnClickListener {
             val replyIntent = Intent()
 
