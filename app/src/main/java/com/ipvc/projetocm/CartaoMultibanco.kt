@@ -23,6 +23,7 @@ class CartaoMultibanco : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_cartao_multibanco)
+        supportActionBar?.hide()
 
         val sharedPreference: SharedPreferences = getSharedPreferences("FILE_1", Context.MODE_PRIVATE)
         val idBilhete = sharedPreference.getString("PREF_BILHETE_ID", "");

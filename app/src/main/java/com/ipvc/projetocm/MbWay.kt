@@ -19,6 +19,7 @@ class MbWay : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_mb_way)
+        supportActionBar?.hide()
 
         val sharedPreference: SharedPreferences = getSharedPreferences("FILE_1", Context.MODE_PRIVATE)
         val idBilhete = sharedPreference.getString("PREF_BILHETE_ID", "");
