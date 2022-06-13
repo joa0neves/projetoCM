@@ -39,4 +39,16 @@
     <string name="pay">PAY</string>
     <string name="payment">Payment</string>
     <string name="payment_method_text">Choose Payment Method:</string>
+    <string name="reviewParque">Park Review</string>
+    <string name="reviewParqueComentario">Comment</string>
+    <string name="reviewParqueBotaoSubmeter">Submit</string>
+    <string name="registoTitulocraiarConta">Account Creation</string>
+    <string name="registoETnome">Name</string>
+    <string name="registoETemail">Email</string>
+    <string name="registoETpassword">Password</string>
+    <string name="registoETcontacto">Contact</string>
+    <string name="registoETfazerlogin">Already have an account? Do it Log in.</string>
+    <string name="registoETBotaoRegistar">Register</string>
+    <string name="perfilboataoAtualizar">Update</string>
+    <string name="alterarperfilPass">Change Password</string>
 </resources>

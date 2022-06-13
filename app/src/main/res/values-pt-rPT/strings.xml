@@ -40,4 +40,16 @@
     <string name="pay">PAGAR</string>
     <string name="payment">Pagamento</string>
     <string name="payment_method_text">Escolha o seu método de pagamento:</string>
+    <string name="reviewParque">Review Parque</string>
+    <string name="reviewParqueComentario">Comentário</string>
+    <string name="reviewParqueBotaoSubmeter">Submeter</string>
+    <string name="registoTitulocraiarConta">Criação de Conta</string>
+    <string name="registoETnome">Nome</string>
+    <string name="registoETemail">Email</string>
+    <string name="registoETpassword">Password</string>
+    <string name="registoETcontacto">Contacto</string>
+    <string name="registoETfazerlogin">Já tem conta? Faça o login.</string>
+    <string name="registoETBotaoRegistar">Registar</string>
+    <string name="perfilboataoAtualizar">Atualizar</string>
+    <string name="alterarperfilPass">Alterar Password</string>
 </resources>
