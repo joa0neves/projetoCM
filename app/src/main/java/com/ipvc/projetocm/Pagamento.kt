@@ -15,10 +15,6 @@ class Pagamento : AppCompatActivity() {
         val intent = Intent(this,CartaoMultibanco::class.java).apply {  }
         startActivity(intent)
     }
-    fun pagarPayPal(view: View) {
-        val intent = Intent(this,PayPal::class.java).apply {  }
-        startActivity(intent)
-    }
     fun pagarMbWay(view: View) {
         val intent = Intent(this,MbWay::class.java).apply {  }
         startActivity(intent)

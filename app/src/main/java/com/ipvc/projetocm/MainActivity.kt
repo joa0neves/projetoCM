@@ -21,7 +21,7 @@ class MainActivity : AppCompatActivity() {
 
         val buttonClickLog = findViewById<Button>(R.id.login)
         buttonClickLog.setOnClickListener {
-            val intent = Intent(this, Bilhete::class.java)
+            val intent = Intent(this, Login::class.java)
             startActivity(intent)
         }
 

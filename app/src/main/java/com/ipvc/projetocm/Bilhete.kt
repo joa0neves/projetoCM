@@ -48,9 +48,6 @@ class Bilhete : AppCompatActivity() {
                 //val idUser = sharedPreference.getString("PREF_ID", "");
                 val idUser = 1;
 
-                Log.d("DATA", data.toString());
-                Log.d("VALOR", valor.toString());
-
                 //ServiceBuilder.instance.postBilhete(data, tempo, valor, idUser?.toInt())
                 ServiceBuilder.instance.postBilhete(data, tempo, valor, idUser)
                     .enqueue(object: Callback<DefaultResponse> {
@@ -70,7 +67,7 @@ class Bilhete : AppCompatActivity() {
                 }
                 startActivity(intent)
             }
-            finish()
+            //finish()
         }
 
 

@@ -15,7 +15,7 @@ import retrofit2.Response
 
 class DetalhesBilhete : AppCompatActivity() {
 
-    val sharedPreference: SharedPreferences = getSharedPreferences("FILE_1", Context.MODE_PRIVATE)
+    //val sharedPreference: SharedPreferences = getSharedPreferences("FILE_1", Context.MODE_PRIVATE)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -32,7 +32,7 @@ class DetalhesBilhete : AppCompatActivity() {
         val parametroTotalBilhete = intent.getStringExtra(PARAM_CUSTO_TOTAL_BILHETE)
         val tvReservaTotalaPagar = findViewById<TextView>(R.id.tvReservaTotalaPagar)
         tvReservaTotalaPagar.setText(parametroTotalBilhete)
-
+        /*
         val idUser = sharedPreference.getString("PREF_ID", "");
 
         ServiceBuilder.instance.getIdBilhete(idUser?.toInt())
@@ -46,8 +46,8 @@ class DetalhesBilhete : AppCompatActivity() {
                 }
             }
         })
-
-                    //val parametroNomeBilhete = intent.getStringExtra(PARAM_NOME_BILHETE)
+        */
+        //val parametroNomeBilhete = intent.getStringExtra(PARAM_NOME_BILHETE)
         //val tvNomeBilhete = findViewById<TextView>(R.id.tvReservaNome)
         //tvNomeBilhete.setText(parametroNomeBilhete)
     }
