@@ -142,5 +142,16 @@
         app:layout_constraintTop_toBottomOf="@+id/tvReservaTotalaPagar"
         app:srcCompat="@android:mipmap/sym_def_app_icon" />
 
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="70dp"
+        android:layout_height="61dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="4dp"
+        android:onClick="historicoReservas"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/history" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

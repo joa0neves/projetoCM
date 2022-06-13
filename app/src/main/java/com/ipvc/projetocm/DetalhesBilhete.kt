@@ -8,6 +8,7 @@ import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.View
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
@@ -69,6 +70,10 @@ class DetalhesBilhete : AppCompatActivity() {
         }catch (e: WriteAbortedException){
             e.printStackTrace()
         }
+
+        val buttonHistorico = findViewById<ImageView>(R.id.imageView4)
+        buttonHistorico.isVisible = false
+
         val button = findViewById<Button>(R.id.btReservaPagar)
         button.setOnClickListener {
             val intent = Intent(this, Pagamento::class.java).apply {}
@@ -106,13 +111,13 @@ class DetalhesBilhete : AppCompatActivity() {
     override fun onResume() {
         super.onResume()
 
-        val sharedPreference: SharedPreferences = getSharedPreferences("FILE_1", Context.MODE_PRIVATE)
-
         val textView = findViewById<TextView>(R.id.tvReservaHoraInicio)
         val textView2 = findViewById<TextView>(R.id.tvReservaTempoDesejado)
         val tvReservaTotalaPagar = findViewById<TextView>(R.id.tvReservaTotalaPagar)
 
         val key = intent.getStringExtra(PARAM_KEY2);
+
+        val buttonHistorico = findViewById<ImageView>(R.id.imageView4)
 
         val button = findViewById<Button>(R.id.btReservaPagar)
         ServiceBuilder.instance.getEstadoPagamento(key)
@@ -123,11 +128,17 @@ class DetalhesBilhete : AppCompatActivity() {
                 override fun onResponse(call: Call<Pagamentos>, response: Response<Pagamentos>) {
                     if(response.body()!!.estaPago!=0){
                         button.isVisible = false
+                        buttonHistorico.isVisible = true
                     }
                     textView.setText(response.body()!!.data)
                     textView2.setText(response.body()!!.tempo)
                     tvReservaTotalaPagar.setText(response.body()!!.valor)
                 }
             })
+    }
+
+    fun historicoReservas(view: View) {
+        val intent = Intent(this, HistoricoReservas::class.java)
+        startActivity(intent)
     }
 }
