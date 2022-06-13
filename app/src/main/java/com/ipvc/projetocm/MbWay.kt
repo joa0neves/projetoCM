@@ -25,7 +25,7 @@ class MbWay : AppCompatActivity() {
         val sharedPreference: SharedPreferences = getSharedPreferences("FILE_1", Context.MODE_PRIVATE)
         val idBilhete = sharedPreference.getString("PREF_BILHETE_ID", "");
 
-        val button = findViewById<ImageButton>(R.id.buttonCartaoMultibanco)
+        val button = findViewById<Button>(R.id.buttonMbWay)
         button.setOnClickListener {
             val replyIntent = Intent()
 
