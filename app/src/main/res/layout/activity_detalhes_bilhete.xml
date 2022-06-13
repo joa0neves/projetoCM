@@ -33,70 +33,42 @@
         app:layout_constraintTop_toBottomOf="@+id/tvDetalheReserva" />
 
     <TextView
-        android:id="@+id/textViewNomeUtilizador"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="25dp"
-        android:layout_marginEnd="8dp"
-        android:text="Nome:"
-        android:textSize="20sp"
-        app:layout_constraintEnd_toStartOf="@+id/tvReservaNome"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView2" />
-
-    <TextView
-        android:id="@+id/tvReservaNome"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="25dp"
-        android:layout_marginTop="25dp"
-        android:background="#000000"
-        android:text="Nome do Utilizador"
-        android:textColor="#FFFFFF"
-        android:textIsSelectable="false"
-        android:textSize="20sp"
-        app:layout_constraintStart_toEndOf="@+id/textViewNomeUtilizador"
-        app:layout_constraintTop_toBottomOf="@+id/textView2" />
-
-    <TextView
         android:id="@+id/textViewHoraEntrada"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="20dp"
         android:layout_marginEnd="8dp"
         android:text="Hora de Entrada:"
-        android:textSize="20sp"
+        android:textSize="16sp"
         app:layout_constraintEnd_toStartOf="@+id/tvReservaHoraInicio"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewNomeUtilizador" />
+        app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
     <TextView
         android:id="@+id/tvReservaHoraInicio"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="25dp"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="20dp"
         android:background="#000000"
         android:text="Hora de Entrada"
         android:textColor="#FFFFFF"
         android:textIsSelectable="false"
-        android:textSize="20sp"
+        android:textSize="16sp"
         app:layout_constraintStart_toEndOf="@+id/textViewHoraEntrada"
-        app:layout_constraintTop_toBottomOf="@+id/tvReservaNome" />
+        app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
     <TextView
         android:id="@+id/textViewTempoIdealizado"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="20dp"
         android:layout_marginEnd="8dp"
         android:text="Tempo Estimado:"
-        android:textSize="20sp"
+        android:textSize="16sp"
         app:layout_constraintEnd_toStartOf="@+id/tvReservaTempoDesejado"
         app:layout_constraintHorizontal_bias="0.666"
         app:layout_constraintStart_toStartOf="parent"
@@ -106,13 +78,13 @@
         android:id="@+id/tvReservaTempoDesejado"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="25dp"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="20dp"
         android:background="#000000"
         android:text="Tempo Idealizado"
         android:textColor="#FFFFFF"
         android:textIsSelectable="false"
-        android:textSize="20sp"
+        android:textSize="16sp"
         app:layout_constraintStart_toEndOf="@+id/textViewTempoIdealizado"
         app:layout_constraintTop_toBottomOf="@+id/tvReservaHoraInicio" />
 
@@ -120,11 +92,11 @@
         android:id="@+id/textViewTotalBilhete"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="20dp"
         android:layout_marginEnd="8dp"
         android:text="Preço:"
-        android:textSize="20sp"
+        android:textSize="16sp"
         app:layout_constraintEnd_toStartOf="@+id/tvReservaTotalaPagar"
         app:layout_constraintHorizontal_bias="0.565"
         app:layout_constraintStart_toStartOf="parent"
@@ -134,13 +106,13 @@
         android:id="@+id/tvReservaTotalaPagar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="25dp"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="20dp"
         android:background="#000000"
         android:text="Preço do Bilhete"
         android:textColor="#FFFFFF"
         android:textIsSelectable="false"
-        android:textSize="20sp"
+        android:textSize="16sp"
         app:layout_constraintStart_toEndOf="@+id/textViewTotalBilhete"
         app:layout_constraintTop_toBottomOf="@+id/tvReservaTempoDesejado" />
 

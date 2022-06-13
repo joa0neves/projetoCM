@@ -33,6 +33,7 @@ class DetalhesBilhete : AppCompatActivity() {
         val parametroTotalBilhete = intent.getStringExtra(PARAM_CUSTO_TOTAL_BILHETE)
         val tvReservaTotalaPagar = findViewById<TextView>(R.id.tvReservaTotalaPagar)
         tvReservaTotalaPagar.setText(parametroTotalBilhete)
+
         /*
         val idUser = sharedPreference.getString("PREF_ID", "");
 
