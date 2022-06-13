@@ -41,7 +41,7 @@ class Bilhete : AppCompatActivity() {
 
         val sharedPreference: SharedPreferences = getSharedPreferences("FILE_1", Context.MODE_PRIVATE)
 
-        editTempoView = findViewById(R.id.etTempoQuePensaFicar);
+        editTempoView = findViewById(R.id.etTempoQuePensaFicar)
 
         val key = generateKey(20)
 
@@ -81,7 +81,7 @@ class Bilhete : AppCompatActivity() {
         }
     }
 
-    fun generateKey(length: Int) : String {
+    private fun generateKey(length: Int) : String {
         val charset = "ABCDEFGHIJKLMNOPQRSTUVWXTZabcdefghiklmnopqrstuvwxyz0123456789!@#$%^&*()-_=+[]{}/?:;|><"
         return (1..length)
             .map { charset.random() }
@@ -92,7 +92,7 @@ class Bilhete : AppCompatActivity() {
     {
         val name = "Notif Channel"
         val desc = "A Description of the Channel"
-        val importance = NotificationManager.IMPORTANCE_DEFAULT
+        val importance = NotificationManager.IMPORTANCE_HIGH
         val channel = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             NotificationChannel(channelID, name, importance)
         } else {
@@ -107,8 +107,8 @@ class Bilhete : AppCompatActivity() {
     private fun scheduleNotification()
     {
         val intent = Intent(applicationContext, Notificacao::class.java)
-        val title = "AVISO"
-        val message = "A sua reserva ACABOU! Tem 15 minutos para remover o seu veiculo"
+        val title = "A SUA RESERVA ACABOU"
+        val message = "Tem 15 minutos para remover o seu veiculo!"
         intent.putExtra(titleExtra, title)
         intent.putExtra(messageExtra, message)
 
@@ -123,6 +123,7 @@ class Bilhete : AppCompatActivity() {
         val alarmManager = getSystemService(Context.ALARM_SERVICE) as AlarmManager
         val time = getTime()
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            Log.d("teste","show")
             alarmManager.setExactAndAllowWhileIdle(
                 AlarmManager.RTC_WAKEUP,
                 time,
@@ -152,11 +153,11 @@ class Bilhete : AppCompatActivity() {
     private fun getTime(): Long
     {
         editTempoView = findViewById(R.id.etTempoQuePensaFicar);
-        var year = Calendar.getInstance().get(Calendar.YEAR)
-        var month = Calendar.getInstance().get(Calendar.MONTH)
-        var day = Calendar.getInstance().get(Calendar.DAY_OF_MONTH)
-        var hour = Calendar.getInstance().get(Calendar.HOUR_OF_DAY)
-        var minute = Calendar.getInstance().get(Calendar.MINUTE)
+        val year = Calendar.getInstance().get(Calendar.YEAR)
+        val month = Calendar.getInstance().get(Calendar.MONTH)
+        val day = Calendar.getInstance().get(Calendar.DAY_OF_MONTH)
+        val hour = Calendar.getInstance().get(Calendar.HOUR_OF_DAY)
+        val minute = Calendar.getInstance().get(Calendar.MINUTE)
         val tempo = editTempoView.text.toString().toInt()
 
         val calendar = Calendar.getInstance()
